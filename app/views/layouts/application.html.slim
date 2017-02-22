@@ -1,0 +1,15 @@
+html ng-app="app"
+  head
+    base href="/"
+    = stylesheet_link_tag 'application'
+  body
+    .container
+      .navbar.navbar-default
+        .container-fluid
+          ul.nav.navbar-nav
+            li ui-sref-active="active"
+              a ui-sref="things_path" = t('.all')
+            li ui-sref-active="active"
+              a ui-sref="new_thing_path" = t('.new')
+      ui-view
+    = javascript_include_tag 'application'

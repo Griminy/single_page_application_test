@@ -1,0 +1,27 @@
+h1 = t('.page_title')
+
+input.form-control type="text" ng-model="search" placeholder="Поиск"
+br
+table.table.table-bordered
+  thead
+    tr
+      th = t('.title')
+      th = t('.description')
+      th = t('.tags')
+      th = t('.category')
+      th = t('.date')
+  tbody
+    tr dir-paginate="thing in ctrl.things | filter:search | itemsPerPage:10"
+      td
+        a ui-sref="thing_path(thing)" ng-bind="thing.title"
+      td ng-bind="ctrl.truncate_text(thing.description)"
+      td ng-bind="thing.tags"
+      td ng-bind="thing.category"
+      td ng-bind="thing.created_at | date:'dd.MM.yyyy'"
+      td.w1
+        a.btn.btn-primary ui-sref="edit_thing_path(thing)" = t('.edit')
+        | &nbsp;
+        a.btn.btn-danger ng-click="ctrl.destroy(thing)" = t('.delete')
+
+div class="text-center"
+  dir-pagination-controls max-size="10"
