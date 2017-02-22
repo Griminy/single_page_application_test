@@ -41,7 +41,7 @@ class ThingsController < ApplicationController
   def create
     @thing = Thing.new thing_params
     if @thing.save
-      render json: {thing: @thing, msg: "thing successfully created", redirect_to: "things_path"}
+      render json: {thing: @thing, msg: t('.success'), redirect_to: "things_path"}
     else
       render json: {errors: @thing.errors, msg: @thing.errors.full_messages.join(', ')}, status: 422
     end
@@ -49,7 +49,7 @@ class ThingsController < ApplicationController
 
   def update
     if @thing.update(thing_params)
-      render json: {thing: @thing, msg: "thing successfully updated", redirect_to: "things_path"}
+      render json: {thing: @thing, msg: t('.success'), redirect_to: "things_path"}
     else
       render json: {errors: @thing.errors, msg: @thing.errors.full_messages.join(', ')}, status: 422
     end
@@ -57,15 +57,16 @@ class ThingsController < ApplicationController
 
   def destroy
     @thing.destroy
-    render json: {msg: "thing successfully deleted", redirect_to: "things_path"}
+    render json: {msg: t('.success'), redirect_to: "things_path"}
   end
 
   private
-    def set_thing
-      @thing = Thing.find(params[:id])
-    end
+  
+  def set_thing
+    @thing = Thing.find(params[:id])
+  end
 
-    def thing_params
-      params.require(:thing).permit(:title, :description)
-    end
+  def thing_params
+    params.require(:thing).permit(:title, :description)
+  end
 end

@@ -35,6 +35,9 @@ gem 'slim-rails'
 gem 'thin'
 gem 'oxymoron'
 
+gem 'oj'
+gem 'oj_mimic_json'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 

@@ -91,6 +91,8 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    oj (2.18.1)
+    oj_mimic_json (1.0.1)
     oxymoron (1.1.4)
       awesome_print
       pry
@@ -203,6 +205,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  oj
+  oj_mimic_json
   oxymoron
   pg (~> 0.18)
   puma (~> 3.0)
