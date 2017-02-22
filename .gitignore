@@ -15,3 +15,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+/config/config.yml
+/config/secrets.yml
+/config/database.yml
+/app/assets/javascripts/oxymoron.js
