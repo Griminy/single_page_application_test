@@ -12,6 +12,10 @@
     = f.label :category
     = f.text_field :category, class: "form-control"
 
+  .form-group
+    = f.label :tag_list, "Tags (separated by commas)"
+    = f.text_field :tag_list, class: "form-control"
+
   = f.submit t('.save'), class: "btn btn-primary"
   | &nbsp;
   a.btn.btn-danger ng-click="ctrl.destroy(ctrl.thing)" ng-if="ctrl.thing.id" = t('.delete')

@@ -4,8 +4,9 @@ categories = ['good things', 'bad things', 'neutral things', 'other things']
 
 unless Thing.any?
   100.times do |t|
-    Thing.create(title: "Thing numero #{t+1}", description: description,
-                 tags: tags.sample(2), category: categories.sample,
-                 address: "Some address #{t+1}")
+    t = Thing.new(title: "Thing numero #{t+1}", description: description,
+                  category: categories.sample, address: "Some address #{t+1}")
+    t.tag_list = tags.sample(2).join(", ")
+    t.save
   end
 end

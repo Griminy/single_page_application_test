@@ -2,11 +2,11 @@ class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
   def index
+    # @ta = ActsAsTaggableOn::Tag.all.pluck(:name)
     respond_to do |format|
       format.html
       format.json {
-        @things = Thing.all
-        render json: @things
+        render json: objects_with_tags
       }
     end
   end
@@ -15,7 +15,7 @@ class ThingsController < ApplicationController
     respond_to do |format|
       format.html
       format.json {
-        render json: @thing
+        render json: object_with_tags
       }
     end
   end
@@ -34,7 +34,7 @@ class ThingsController < ApplicationController
     respond_to do |format|
       format.html
       format.json {
-        render json: @thing
+        render json: object_with_tags
       }
     end
   end
@@ -62,12 +62,30 @@ class ThingsController < ApplicationController
   end
 
   private
+
+  def object_with_tags
+    thing = @thing.attributes
+    thing[:tag_list] = @thing.tag_list
+    return thing
+  end
   
+  def objects_with_tags
+    all = []
+    Thing.all.each do |object|
+      object_attributes = object.attributes
+      object_attributes[:tag_list] = object.tag_list
+      all << object_attributes 
+    end
+    return all
+  end
+
   def set_thing
     @thing = Thing.find(params[:id])
   end
 
   def thing_params
-    params.require(:thing).permit(:title, :description)
+    params.require(:thing).permit(:title, :description, 
+                                  :address, :tag_list,
+                                  :category)
   end
 end

@@ -2,6 +2,7 @@ h1 = t('.page_title')
 
 input.form-control type="text" ng-model="search" placeholder="Поиск"
 br
+
 table.table.table-bordered
   thead
     tr
@@ -15,7 +16,7 @@ table.table.table-bordered
       td
         a ui-sref="thing_path(thing)" ng-bind="thing.title"
       td ng-bind="ctrl.truncate_text(thing.description)"
-      td ng-bind="thing.tags"
+      td ng-bind="thing.tag_list"
       td ng-bind="thing.category"
       td ng-bind="thing.created_at | date:'dd.MM.yyyy'"
       td.w1
