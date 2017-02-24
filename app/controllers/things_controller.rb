@@ -2,7 +2,6 @@ class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @ta = ActsAsTaggableOn::Tag.all.pluck(:name)
     respond_to do |format|
       format.html
       format.json {
