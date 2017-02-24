@@ -21,10 +21,11 @@ class ThingsController < ApplicationController
   end
 
   def new
+    @thing = Thing.new
     respond_to do |format|
       format.html
       format.json {
-        render json: Thing.new
+        render json: @thing
       }
     end
   end

@@ -15,6 +15,10 @@ en:
     new:
       title: "New Thing"
     show: 
+      category: "Category"
+      tags: "Tags"
+      address: "Address"
+      Date: "Date"
       delete: "Delete"
       edit: "Edit"
     create:

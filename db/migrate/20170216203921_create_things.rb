@@ -7,6 +7,8 @@ class CreateThings < ActiveRecord::Migration[5.0]
       t.string :category
       t.text   :description
       t.string :tags, array: true, default: []
+
+      t.timestamps
     end
   end
 end

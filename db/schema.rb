@@ -16,12 +16,14 @@ ActiveRecord::Schema.define(version: 20170216203921) do
   enable_extension "plpgsql"
 
   create_table "things", force: :cascade do |t|
-    t.string "title"
-    t.string "tag"
-    t.string "address"
-    t.string "category"
-    t.text   "description"
-    t.string "tags",        default: [], array: true
+    t.string   "title"
+    t.string   "tag"
+    t.string   "address"
+    t.string   "category"
+    t.text     "description"
+    t.string   "tags",        default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
